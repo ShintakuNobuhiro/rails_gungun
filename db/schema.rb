@@ -11,7 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821155835) do
+ActiveRecord::Schema.define(version: 20150914060902) do
+
+  create_table "acquisitions", force: true do |t|
+    t.integer  "mission_id"
+    t.integer  "category_id"
+    t.integer  "experiences"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "acquisitions", ["category_id", "mission_id"], name: "index_acquisitions_on_category_id_and_mission_id", unique: true
+  add_index "acquisitions", ["category_id"], name: "index_acquisitions_on_category_id"
+  add_index "acquisitions", ["mission_id"], name: "index_acquisitions_on_mission_id"
+
+  create_table "assings", force: true do |t|
+    t.integer  "mission_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assings", ["mission_id"], name: "index_assings_on_mission_id"
+  add_index "assings", ["user_id"], name: "index_assings_on_user_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "levels", force: true do |t|
+    t.integer  "value"
+    t.integer  "sufficiencies"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "missions", force: true do |t|
+    t.string   "description"
+    t.integer  "category_id"
+    t.integer  "level_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "missions", ["category_id"], name: "index_missions_on_category_id"
+  add_index "missions", ["level_id"], name: "index_missions_on_level_id"
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
