@@ -9,4 +9,9 @@ describe Category do
     
     it { should respond_to(:name) }
     it { should be_valid }
+    
+    describe "with blamk name " do
+        before { @category.name = " " }
+        it { should_not be_valid }
+    end
 end

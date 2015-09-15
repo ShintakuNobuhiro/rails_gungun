@@ -29,6 +29,4 @@ describe Acquisition do
         before { @acquisition.experiences = 0 }
         it { should_not be_valid }
     end
-    
-    describe 
 end
