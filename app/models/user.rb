@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  belongs_to :role
+  has_many :assigns
+  has_many :histories
+  has_many :statuses
+  
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
@@ -8,7 +13,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }
-  
+  validates :card_id, presence: true
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

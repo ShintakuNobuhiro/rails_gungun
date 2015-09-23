@@ -3,12 +3,14 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "foobar", password_confirmation: "foobar")
+    @role = Role.create(name:"Administrator")
+    @user = @role.users.build(name: "Example User", email: "user@example.com",
+                              password: "foobar", password_confirmation: "foobar",
+                              card_id:"example")
   end
 
   subject { @user }
-
+  
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
@@ -16,6 +18,8 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:card_id) }
+  its(:role) { should eq @role }
 
   it { should be_valid }
 
@@ -102,5 +106,10 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+  
+  describe "card_id is not present" do
+    before { @user.card_id = " " }
+    it { should_not be_valid }
   end
 end
