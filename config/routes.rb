@@ -2,6 +2,7 @@ HikariApp::Application.routes.draw do
   get "categories/show"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :categories
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
