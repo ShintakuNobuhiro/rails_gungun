@@ -1,2 +1,15 @@
 <h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+
+<table>
+    <tr>
+        <th>Level</th>
+        <th>説明文</th>
+    </tr>
+    
+<% @missions.each do |mission| %>
+    <tr>
+        <td><%= mission.level_id %></td>
+        <td><%= mission.description %></td>
+    </tr>
+<% end %>
+</table>
