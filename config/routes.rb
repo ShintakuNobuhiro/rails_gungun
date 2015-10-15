@@ -14,8 +14,6 @@ HikariApp::Application.routes.draw do
   match '/api/assigns', to: 'api/api#assigns',via: 'post' 
   match '/api/histories', to: 'api/api#histories',via: 'post' 
 
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

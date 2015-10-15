@@ -1,4 +1,4 @@
-name,email,password_digest,remember_token,role_id,card_id
-à…ì°ê^ñÁ,itoh@aaaa.bb.cc,password,xxxxx,3,1
-êVëÓêLå[,shintaku@aaaa.bb.cc,password,xxxxx,1,2
-è¨ãvï€â∑,kokubo@aaaa.bb.cc,password,xxxxx,2,3
+name,email,password,password_confirmation,role_id,card_number
+shinya,itoh@aaa.bbb,123456,123456,3,abcdef123456
+nobu,shintaku@aaa.bbb,456789,456789,2,abcdef456789
+hiro,example@aaa.bbb,qwerty,qwerty,1,123456abcdef

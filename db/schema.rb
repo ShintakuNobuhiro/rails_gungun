@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926023236) do
+ActiveRecord::Schema.define(version: 20151014120450) do
 
   create_table "acquisitions", force: true do |t|
     t.integer  "mission_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20150926023236) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.integer  "role_id"
-    t.string   "card_id"
+    t.string   "card_number"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

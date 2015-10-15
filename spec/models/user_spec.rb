@@ -6,7 +6,7 @@ describe User do
     @role = Role.create(name:"Administrator", japanese_name:"管理者")
     @user = @role.users.build(name: "Example User", email: "user@example.com",
                               password: "foobar", password_confirmation: "foobar",
-                              card_id:"example")
+                              card_number:"example")
   end
 
   subject { @user }
@@ -18,7 +18,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
-  it { should respond_to(:card_id) }
+  it { should respond_to(:card_number) }
   its(:role) { should eq @role }
 
   it { should be_valid }
