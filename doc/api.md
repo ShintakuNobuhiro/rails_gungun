@@ -21,7 +21,7 @@ password=qwerty123
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"password":"qwerty123"}' http://localhost:3000/api/users/abcdef123456.json
+$ curl -X POST -H "Content-type: application/json" -d '{"password":"qwerty123"}' http://0.0.0.0:8080/api/users/abcdef123456.json
 ```
 
 応答
@@ -95,7 +95,7 @@ password=qwerty123
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456","password":"qwerty123"}' http://localhost:3000/api/categories/1.json
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456","password":"qwerty123"}' http://0.0.0.0:8080/api/categories/1.json
 ```
 
 応答
@@ -164,7 +164,7 @@ mission_ids[]=18
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "missions_ids": [20, 18]}' http://localhost:3000/api/assigns.json
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "missions_ids": [20, 18]}' http://0.0.0.0:8080/api/assigns.json
 ```
 
 応答
@@ -208,7 +208,7 @@ mission_ids[]=18
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "missions_ids": [20, 18]}' http://localhost:3000/api/histories.json
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "missions_ids": [20, 18]}' http://0.0.0.0:8080/api/histories.json
 ```
 
 応答
