@@ -9,9 +9,8 @@ class Api::ApiController < ApplicationController
         
         if user
             if user.authenticate(params[:password])
-                if Category.find(params[:category_id])
-                    @category = Category.find(params[:category_id])
-                else
+                @category = Category.find_by(id: params[:category_id])
+                unless @category
                     error = { error:"404 Not Found",detail:"category not found with category_id=#{params[:category_id]}" }
                     render json: error
                 end
@@ -27,7 +26,7 @@ class Api::ApiController < ApplicationController
     end
     
     def assigns
-        
+        mission = 
     end
     
     def histories
