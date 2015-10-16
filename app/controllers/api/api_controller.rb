@@ -26,7 +26,7 @@ class Api::ApiController < ApplicationController
     end
     
     def assigns
-        mission = 
+        
     end
     
     def histories
