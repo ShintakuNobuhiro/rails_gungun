@@ -159,17 +159,17 @@ mission_ids[]=18
 送信データ(JSON)
 
 ```
-{"card_number":"abcdef123456", "password":"qwerty123", "missions_ids": [20, 18] }
+{"card_number":"abcdef123456", "password":"qwerty123", "mission_ids": [20, 18] }
 ```
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "missions_ids": [20, 18]}' http://0.0.0.0:8080/api/assigns.json
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "mission_ids": [20, 18]}' http://0.0.0.0:8080/api/assigns.json
 ```
 
 応答
 ```
-{ "card_number":"abcdef123456", "missions_ids": [20, 18] }
+{ "card_number":"abcdef123456", "mission_ids": [20, 18] }
 ```
 
 例外
@@ -203,17 +203,17 @@ mission_ids[]=18
 送信データ(JSON)
 
 ```
-{"card_number":"abcdef123456", "password":"qwerty123", "missions_ids": [20, 18] }
+{"card_number":"abcdef123456", "password":"qwerty123", "mission_ids": [20, 18] }
 ```
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "missions_ids": [20, 18]}' http://0.0.0.0:8080/api/histories.json
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "mission_ids": [20, 18]}' http://0.0.0.0:8080/api/histories.json
 ```
 
 応答
 ```
-{ "card_number":"abcdef123456", "missions_ids": [20, 18] }
+{ "card_number":"abcdef123456", "mission_ids": [20, 18] }
 ```
 
 
