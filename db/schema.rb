@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014120450) do
+ActiveRecord::Schema.define(version: 20151017014512) do
 
   create_table "acquisitions", force: true do |t|
     t.integer  "mission_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151014120450) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "achievement", default: false
   end
 
   add_index "assigns", ["mission_id"], name: "index_assigns_on_mission_id"
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 20151014120450) do
     t.integer  "experience"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "recent_experience"
   end
 
   add_index "statuses", ["mission_id"], name: "index_statuses_on_mission_id"
