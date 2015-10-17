@@ -57,5 +57,7 @@ class Api::ApiController < ApplicationController
     
     def histories
         
+        
+        
     end
 end
