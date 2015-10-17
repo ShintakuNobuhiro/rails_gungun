@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Mission do
     before do
-      @level = Level.create(value:1, sufficiencies:1) 
+      @level = Level.create(value:1, sufficiency:1) 
       @mission = @level.missions.build(description:"説明文", category_id:1) 
     end
     

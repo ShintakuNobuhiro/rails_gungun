@@ -228,6 +228,10 @@ $ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123
 ```
 { "error":"404 Not Found","detail":"invalid password" }
 ```
+ミッションが存在しない場合
+```
+{ "error":"404 Not Found","detail":"missions not found with mission_ids=20,18" }
+```
 ミッションが割り振られていない場合
 ```
 { "error":"404 Not Found","detail":"missions are not assigned with mission_ids=20,18" }

@@ -3,13 +3,14 @@ require 'spec_helper'
 describe Assign do
     before do
         @mission = Mission.create(level_id:1, category_id:1, description:"説明文")
-        @assign = @mission.assigns.build(user_id:1)
+        @assign = @mission.assigns.build(user_id:1, achievement: false)
     end
     
     subject { @assign }
     
     it { should respond_to(:mission_id) }
     it { should respond_to(:user_id) }
+    it { should respond_to(:achievement) } 
     
     it { should be_valid }
     

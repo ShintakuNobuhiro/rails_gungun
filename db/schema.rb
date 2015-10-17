@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017014512) do
+ActiveRecord::Schema.define(version: 20151017055748) do
 
   create_table "acquisitions", force: true do |t|
     t.integer  "mission_id"
     t.integer  "category_id"
-    t.integer  "experiences"
+    t.integer  "experience"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20151017014512) do
 
   create_table "levels", force: true do |t|
     t.integer  "value"
-    t.integer  "sufficiencies"
+    t.integer  "sufficiency"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
