@@ -4,7 +4,7 @@ describe Status do
     before do
         @user = User.create(name: "Example User", email: "user@example.com",
                             password: "foobar", password_confirmation: "foobar",
-                            card_id:"example")
+                            card_number:"example")
         @status = @user.statuses.build(mission_id:1, experience:1, recent_experience:10)
     end
     

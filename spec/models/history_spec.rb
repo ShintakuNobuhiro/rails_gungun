@@ -4,7 +4,7 @@ describe History do
     before do
         @user = User.create(name: "Example User", email: "user@example.com",
                             password: "foobar", password_confirmation: "foobar",
-                            card_id:"example")
+                            card_number:"example")
         @history = @user.histories.build(mission_id:1, experience:10)
     end
     
