@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017055748) do
+ActiveRecord::Schema.define(version: 20151019070454) do
 
   create_table "acquisitions", force: true do |t|
     t.integer  "mission_id"
@@ -80,14 +80,14 @@ ActiveRecord::Schema.define(version: 20151017055748) do
 
   create_table "statuses", force: true do |t|
     t.integer  "user_id"
-    t.integer  "mission_id"
+    t.integer  "category_id"
     t.integer  "experience"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "recent_experience"
   end
 
-  add_index "statuses", ["mission_id"], name: "index_statuses_on_mission_id"
+  add_index "statuses", ["category_id"], name: "index_statuses_on_category_id"
   add_index "statuses", ["user_id"], name: "index_statuses_on_user_id"
 
   create_table "users", force: true do |t|

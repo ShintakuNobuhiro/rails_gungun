@@ -33,8 +33,8 @@ def program_import(program_name)
 end
 
 csv_import('roles')
-csv_import('users')
 csv_import('categories')
 csv_import('levels')
 csv_import('missions')
+csv_import('users')
 csv_import('acquisitions')

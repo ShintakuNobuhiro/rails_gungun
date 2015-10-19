@@ -1,11 +1,11 @@
 class Api::ApiController < ApplicationController
     protect_from_forgery with: :null_session
     def users
-        user = User.find_by(card_number: params[:card_number])
+        @user = User.find_by(card_number: params[:card_number])
         
-        if user
-            if user.authenticate(params[:password])
-                
+        if @user
+            if @user.authenticate(params[:password])
+                @user
             else
                 error = { error:"404 Not Found",detail:"invalid password" }
                 render json: error
@@ -90,22 +90,30 @@ class Api::ApiController < ApplicationController
                     assign.achievement = true
                     assign.save
                 end
+                puts "check0"
                 statuses = @user.statuses
                 @mission_ids.each do |mission_id|
+                    puts "check1"
                     acquisitions = Mission.find_by(id: mission_id).acquisitions
+                    puts "check2"
                     acquisitions.each do |acquisition|
+                        puts "check3"
                         status = statuses.find_by(category_id: acquisition.category_id)
                         experience = status.experience + acquisition.experience
                         status.recent_experience = status.experience
                         status.experience = experience
                         status.save
                     end
+                    puts "check4"
                     total_experience = 0
                     statuses.each do |status|
+                        puts "check5"
                         total_experience += status.experience
                     end
-                    history = History.new(mission_id: mission_id, user_id: @user_id, experience: total_experience)
-                    history.save
+                    puts "check6"
+                    history = History.new(mission_id: mission_id, user_id: @user.id, experience: total_experience)
+                    history.save!
+                    puts "check7"
                 end
             else
                 error = { error:"404 Not Found",detail:"invalid password" }

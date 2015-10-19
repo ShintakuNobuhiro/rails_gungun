@@ -53,12 +53,14 @@ $ curl -X POST -H "Content-type: application/json" -d '{"password":"123456"}' ht
             "category":"健康",
             "level": 2,
             "description":"手を洗う"
+            "achievement":true
         },
         {
             "mission_id": 4,
             "category":"お友達・あいさつ",
             "level": 2,
             "description":"あいさつをする"
+            "achievement":true
         }
     ]
 }

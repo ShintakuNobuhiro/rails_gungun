@@ -5,13 +5,13 @@ describe Status do
         @user = User.create(name: "Example User", email: "user@example.com",
                             password: "foobar", password_confirmation: "foobar",
                             card_number:"example")
-        @status = @user.statuses.build(mission_id:1, experience:1, recent_experience:10)
+        @status = @user.statuses.build(category_id:1, experience:1, recent_experience:10)
     end
     
     subject { @status }
 
     it { should respond_to(:user_id) }
-    it { should respond_to(:mission_id) }
+    it { should respond_to(:category_id) }
     it { should respond_to(:experience) }
     it { should respond_to(:recent_experience) }
     its(:user) { should eq @user }
@@ -23,8 +23,8 @@ describe Status do
         it { should_not be_valid }
     end
     
-    describe "when mission_id is not present" do
-        before { @status.mission_id = nil }
+    describe "when category_id is not present" do
+        before { @status.category = nil }
         it { should_not be_valid }
     end
     
