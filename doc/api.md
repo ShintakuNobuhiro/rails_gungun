@@ -11,17 +11,17 @@ POST /api/users/:card_number.json
 
 送信データ(HTTP)
 ```
-password=qwerty123
+password=123456
 ```
 
 送信データ(JSON)
 ```
-{ "password": "qwerty123" }
+{ "password": "123456" }
 ```
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"password":"qwerty123"}' http://0.0.0.0:8080/api/users/abcdef123456.json
+$ curl -X POST -H "Content-type: application/json" -d '{"password":"123456"}' http://0.0.0.0:8080/api/users/abcdef123456.json
 ```
 
 応答
@@ -55,7 +55,7 @@ $ curl -X POST -H "Content-type: application/json" -d '{"password":"qwerty123"}'
             "description":"手を洗う"
         },
         {
-            "id": 4,
+            "mission_id": 4,
             "category":"お友達・あいさつ",
             "level": 2,
             "description":"あいさつをする"
@@ -85,17 +85,17 @@ POST /api/categories/:category_id.json
 送信データ(HTTP)
 ```
 card_number=abcdef123456
-password=qwerty123
+password=123456
 ```
 
 送信データ(JSON)
 ```
-{ "card_number":"abcdef123456","password":"qwerty123" }
+{ "card_number":"abcdef123456","password":"123456" }
 ```
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456","password":"qwerty123"}' http://0.0.0.0:8080/api/categories/1.json
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456","password":"123456"}' http://0.0.0.0:8080/api/categories/1.json
 ```
 
 応答
@@ -151,7 +151,7 @@ POST /api/assigns.json
 送信データ(HTTP)
 ```
 card_number=abcdef123456
-password=qwerty123
+password=123456
 mission_ids[]=20
 mission_ids[]=18
 ```
@@ -159,12 +159,12 @@ mission_ids[]=18
 送信データ(JSON)
 
 ```
-{"card_number":"abcdef123456", "password":"qwerty123", "mission_ids": [20, 18] }
+{"card_number":"abcdef123456", "password":"123456", "mission_ids": [20, 18] }
 ```
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "mission_ids": [20, 18]}' http://0.0.0.0:8080/api/assigns.json
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"123456", "mission_ids": [20, 18]}' http://0.0.0.0:8080/api/assigns.json
 ```
 
 応答
@@ -195,7 +195,7 @@ POST /api/histories.json
 送信データ(HTTP)
 ```
 card_number=abcdef123456
-password=qwerty123
+password=123456F
 mission_ids[]=20
 mission_ids[]=18
 ```
@@ -203,12 +203,12 @@ mission_ids[]=18
 送信データ(JSON)
 
 ```
-{"card_number":"abcdef123456", "password":"qwerty123", "mission_ids": [20, 18] }
+{"card_number":"abcdef123456", "password":"123456", "mission_ids": [20, 18] }
 ```
 
 curlコマンドの例
 ```
-$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"qwerty123", "mission_ids": [20, 18]}' http://0.0.0.0:8080/api/histories.json
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456", "password":"123456", "mission_ids": [20, 18]}' http://0.0.0.0:8080/api/histories.json
 ```
 
 応答
