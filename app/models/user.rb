@@ -23,6 +23,15 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
   
+  def cell
+    statuses = self.statuses
+    total_experience = 0
+    statuses.each do |status|
+      total_experience += status.experience
+    end
+    cell = total_experience / 2
+  end
+  
   private
 
     def create_remember_token
