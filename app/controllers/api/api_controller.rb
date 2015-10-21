@@ -82,17 +82,14 @@ class Api::ApiController < ApplicationController
                 # ミッションの割当確認
                 @mission_ids.each do |mission_id|
                     assign = @user.assigns.find_by(mission_id: mission_id)
-                    if assign
-                        # 割当の達成フラグを立てる
-                        assign.achievement = true
-                        assign.save
-                    else
+                    unless assign
                         error = {error:"404 Not Found",detail:"missions are not assigned with mission_ids=#{params[:mission_ids]}"}
                         render json: error and return
                     end
                 end
 
                 # 直前の経験値を更新
+                # NOTE: 達成を記録する単位ごとに直前の経験値が更新される
                 statuses = @user.statuses
                 statuses.each do |status|
                     status.recent_experience = status.experience
@@ -100,13 +97,23 @@ class Api::ApiController < ApplicationController
                 end
 
                 @mission_ids.each do |mission_id|
-                    # 達成ミッションの経験値を追加
-                    acquisitions = Mission.find_by(id: mission_id).acquisitions
-                    acquisitions.each do |acquisition|
-                        status = statuses.find_by(category_id: acquisition.category_id)
-                        experience = status.experience + acquisition.experience
-                        status.experience = experience
-                        status.save
+                    # ミッションを取得
+                    mission = Mission.find(mission_id)
+                    # 割当を取得
+                    assign = @user.assigns.find_by(mission_id: mission.id)
+
+                    # 未達成の割当の場合のみ
+                    if assign && assign.achievement != true
+                        # 割当を達成にする
+                        assign.achievement = true
+                        assign.save
+
+                        # 未達成だったミッションの経験値だけを追加
+                        mission.acquisitions.each do |acquisition|
+                            status = statuses.find_by(category_id: acquisition.category_id)
+                            status.experience += acquisition.experience
+                            status.save
+                        end
                     end
                     statuses = @user.statuses.reload
 
