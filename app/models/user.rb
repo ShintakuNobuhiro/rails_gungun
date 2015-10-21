@@ -31,6 +31,15 @@ class User < ActiveRecord::Base
     end
     cell = total_experience / 2
   end
+
+  def recent_cell
+    statuses = self.statuses
+    recent_total_experience = 0
+    statuses.each do |status|
+      recent_total_experience += status.recent_experience
+    end
+    recent_cell = recent_total_experience / 2
+  end
   
   private
 
