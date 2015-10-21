@@ -69,6 +69,7 @@ class Api::ApiController < ApplicationController
         
         if @user
             if @user.authenticate(params[:password])
+                # ミッションの存在確認
                 @mission_ids = params[:mission_ids]
                 @mission_ids.each do |mission_id|
                     mission = Mission.find_by(id: mission_id)
@@ -78,6 +79,7 @@ class Api::ApiController < ApplicationController
                     end
                 end
                 
+                # ミッションの割当確認
                 @mission_ids.each do |mission_id|
                     assign = @user.assigns.find_by(mission_id: mission_id)
                     unless assign
@@ -85,25 +87,43 @@ class Api::ApiController < ApplicationController
                         render json: error and return
                     end
                 end
-                @assigns = @user.assigns
-                @assigns.each do |assign|
-                    assign.achievement = true
-                    assign.save
-                end
+
+                # 直前の経験値を更新
+                # NOTE: 達成を記録する単位ごとに直前の経験値が更新される
                 statuses = @user.statuses
+                statuses.each do |status|
+                    status.recent_experience = status.experience
+                    status.save
+                end
+
                 @mission_ids.each do |mission_id|
-                    acquisitions = Mission.find_by(id: mission_id).acquisitions
-                    acquisitions.each do |acquisition|
-                        status = statuses.find_by(category_id: acquisition.category_id)
-                        experience = status.experience + acquisition.experience
-                        status.recent_experience = status.experience
-                        status.experience = experience
-                        status.save
+                    # ミッションを取得
+                    mission = Mission.find(mission_id)
+                    # 割当を取得
+                    assign = @user.assigns.find_by(mission_id: mission.id)
+
+                    # 未達成の割当の場合のみ
+                    if assign && assign.achievement != true
+                        # 割当を達成にする
+                        assign.achievement = true
+                        assign.save
+
+                        # 未達成だったミッションの経験値だけを追加
+                        mission.acquisitions.each do |acquisition|
+                            status = statuses.find_by(category_id: acquisition.category_id)
+                            status.experience += acquisition.experience
+                            status.save
+                        end
                     end
+                    statuses = @user.statuses.reload
+
+                    # 総経験値を計算
                     total_experience = 0
                     statuses.each do |status|
                         total_experience += status.experience
                     end
+
+                    # 達成の記録
                     history = History.new(mission_id: mission_id, user_id: @user.id, experience: total_experience)
                     history.save!
                 end
