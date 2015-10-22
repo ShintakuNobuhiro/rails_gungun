@@ -2,3 +2,5 @@ name,email,password,password_confirmation,role_id,card_number
 shinya,itoh@aaa.bbb,123456,123456,3,abcdef123456
 nobu,shintaku@aaa.bbb,456789,456789,2,abcdef456789
 hiro,example@aaa.bbb,qwerty,qwerty,1,123456abcdef
+user0198,0198@aaa.bbb,012345,012345,2,012e34e8a50840a7
+user0199,0199@aaa.bbb,234567,234567,2,012e34e8a508408e
