@@ -136,4 +136,20 @@ class Api::ApiController < ApplicationController
             render json: error
         end
     end
+    
+    def levels
+        user = User.find_by(card_number: params[:card_number])
+        
+        if user
+            if user.authenticate(params[:password])
+                @levels = Level.all
+            else
+                error = { error:"404 Not Found",detail:"invalid password" }
+                render json: error
+            end
+        else
+            error = { error:"404 Not Found",detail:"user not found with card_number=#{params[:card_number]}" }
+            render json: error
+        end
+    end
 end

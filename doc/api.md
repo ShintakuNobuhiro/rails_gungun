@@ -4,7 +4,6 @@ URL https://xxx.herokuapp.com/ (未定)
 
 ## 1.ユーザー個人の情報
 
-トップ画面に必要
 ```
 POST /api/users/:card_number.json
 ```
@@ -239,9 +238,49 @@ $ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123
 { "error":"404 Not Found","detail":"missions are not assigned with mission_ids=20,18" }
 ```
 
-## 5.ユーザーのすごろく情報(今回分)
+## 5.レベルのリスト
 
-ユーザー情報を参照する
+```
+POST /api/levels.json
+```
+
+送信データ(HTTP)
+```
+card_number=abcdef123456
+password=123456
+```
+
+送信データ(JSON)
+```
+{ "card_number":"abcdef123456","password":"123456" }
+```
+
+curlコマンドの例
+```
+$ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123456","password":"123456"}' http://0.0.0.0:8080/api/levels.json
+```
+
+応答
+```
+[
+    { "value": 1, "required_experience": 0 },
+    { "value": 2, "required_experience": 20 },
+    { "value": 3, "required_experience": 40 },
+    ….
+    { "value": 10, "required_experience": 100 }
+]
+```
+
+例外
+
+ユーザーが存在しない場合
+```
+{ "error":"404 Not Found","detail":"user not found with card_number=abcdef123456" }
+```
+パスワードが間違っている場合
+```
+{ "error":"404 Not Found","detail":"invalid password" }
+```
 
 ## 6.対応したURLが存在しない場合の例外
 ```
