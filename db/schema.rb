@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019070454) do
+ActiveRecord::Schema.define(version: 20151024041840) do
 
   create_table "acquisitions", force: true do |t|
     t.integer  "mission_id"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20151019070454) do
     t.datetime "updated_at"
   end
 
+  add_index "levels", ["value"], name: "index_levels_on_value", unique: true
+
   create_table "missions", force: true do |t|
     t.string   "description"
     t.integer  "category_id"
@@ -75,7 +77,6 @@ ActiveRecord::Schema.define(version: 20151019070454) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "japanese_name"
   end
 
   create_table "statuses", force: true do |t|
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20151019070454) do
     t.string   "card_number"
   end
 
+  add_index "users", ["card_number"], name: "index_users_on_card_number", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

@@ -12,13 +12,21 @@ describe Level do
     
   it { should be_valid }
     
-  describe "when value is greater than 0" do
+  describe "when value is less than 1" do
       before {@level.value = 0 }
       it { should_not be_valid }
   end
    
   describe "when sufficiency is less than 0" do
-       before {@level.sufficiency = 0 }
+       before {@level.sufficiency = -1 }
        it { should_not be_valid }
+  end
+  
+  describe "when the same value is exist" do
+    before do
+      level_with_same_value = @level.dup
+      level_with_same_value.save
+    end
+    it { should_not be_valid }
   end
 end

@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
   after_create :create_statuses
+  validates :card_number, presence: true,
+                          uniqueness: true
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64

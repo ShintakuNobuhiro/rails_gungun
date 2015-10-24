@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before do
-    @role = Role.create(name:"Administrator", japanese_name:"管理者")
+    @role = Role.create(name:"Administrator")
     @user = @role.users.build(name: "Example User", email: "user@example.com",
                               password: "foobar", password_confirmation: "foobar",
                               card_number:"example")
@@ -63,6 +63,7 @@ describe User do
     before do
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email.upcase
+      user_with_same_email.card_number = "otherexample"
       user_with_same_email.save
     end
 
@@ -106,5 +107,19 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+  
+  describe "when card_number is not present" do
+    before { @user.card_number = " "}
+    it { should_not be_valid }
+  end
+  
+  describe "when card_number is already taken" do
+    before do
+      user_with_same_card_number = @user.dup
+      user_with_same_card_number.email = "otheruser@example.com"
+      user_with_same_card_number.save
+    end
+    it { should_not be_valid }
   end
 end

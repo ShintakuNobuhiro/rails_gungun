@@ -3,7 +3,8 @@ require 'spec_helper'
 describe Mission do
     before do
       @level = Level.create(value:1, sufficiency:1) 
-      @mission = @level.missions.build(description:"説明文", category_id:1) 
+      @category = Category.create(name:"健康")
+      @mission = @level.missions.build(description:"説明文", category_id: @category.id) 
     end
     
     subject { @mission }
@@ -12,6 +13,7 @@ describe Mission do
     it { should respond_to(:description) }
     it { should respond_to(:category_id) }
     its(:level) { should eq @level }
+    its(:category) { should eq @category }
   
     it { should be_valid }
   
