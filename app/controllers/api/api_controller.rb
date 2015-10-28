@@ -138,6 +138,7 @@ class Api::ApiController < ApplicationController
     end
     
     def levels
+        #json_body = JSON.parse(request.body.read)
         user = User.find_by(card_number: params[:card_number])
         
         if user

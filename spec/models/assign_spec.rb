@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe Assign do
     before do
-        @mission = Mission.create(level_id:1, category_id:1, description:"説明文")
+        @level = Level.create(value: 1, sufficiency: 1)
+        @category = Category.create(name: 'cat1')
+        @mission = Mission.create(level: @level, category: @category, description:"説明文")
         @user = User.create(name:"Example User", email: "user@example.com",
                                  password: "foobar", password_confirmation: "foobar",
                                  card_number:"example")
@@ -38,6 +40,15 @@ describe Assign do
         before do
             assign_with_same_mission_id = @user.assigns.build(mission_id: @mission.id, achievement: true)
             assign_with_same_mission_id.save
+        end
+        it { should_not be_valid }
+    end
+
+    describe "when the mission with same category is registered" do
+        before do
+            mission_with_same_category = Mission.create(level: @level, category: @category, description:"説明文2")
+            mission_with_same_category.reload
+            assign_with_same_mission_with_same_category = @user.assigns.create(mission_id: mission_with_same_category.id, achievement: false)
         end
         it { should_not be_valid }
     end
