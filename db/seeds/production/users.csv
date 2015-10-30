@@ -2,5 +2,14 @@ name,email,password,password_confirmation,role_id,card_number
 shinya,itoh@aaa.bbb,123456,123456,3,abcdef123456
 nobu,shintaku@aaa.bbb,456789,456789,2,abcdef456789
 hiro,example@aaa.bbb,qwerty,qwerty,1,123456abcdef
-user0198,0198@aaa.bbb,012345,012345,1,012e34e8a50840a7
-user0199,0199@aaa.bbb,234567,234567,1,012e34e8a508408e
+user0193,193@aaa.bbb,test0193,test0193,1,012e34e8a508406e
+user0194,194@aaa.bbb,test0194,test0194,1,012e34e8a508405e
+user0195,195@aaa.bbb,test0195,test0195,1,012e34e8a508404e
+user0196,196@aaa.bbb,test0196,test0196,1,012e34e8a5084031
+user0197,197@aaa.bbb,test0197,test0197,1,012e34e8a50840b7
+user0198,0198@aaa.bbb,test0198,test0198,1,012e34e8a50840a7
+user0199,0199@aaa.bbb,test0199,test0199,1,012e34e8a508408e
+user0200,200@aaa.bbb,test0200,test0200,1,012e34e8a508409b
+user0201,201@aaa.bbb,test0201,test0201,1,012e34e8a5084c72
+user0202,202@aaa.bbb,test0202,test0202,1,012e34e8a5084c63
+user0203,203@aaa.bbb,test0203,test0203,1,012e34e8a5084c53
