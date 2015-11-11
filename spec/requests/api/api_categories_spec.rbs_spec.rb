@@ -1,17 +1,15 @@
 require 'spec_helper'
 
-describe "POST /api_levels" do
+describe "POST /api_categories" do
   subject { page }
   before do
     @user = User.create(name: "Example User", email: "user@example.com",
                         password: "foobar", password_confirmation: "foobar",
                         card_number:"example")
-    # levelを作る
-    @level = Level.create(value:2, sufficiency:100)
+    @mission = Mission.create(level_id:1, category_id:1, description:"説明文")
   end
   
-    # POSTの内容を作る
-  describe "POST /api/levels.json" do
+  describe "POST /api/categories.json" do
     # headerとbodyをつくってpathにPOST
     let(:request_header) do
       { 'CONTENT_TYPE' => 'application/json' }
@@ -22,17 +20,16 @@ describe "POST /api_levels" do
     end
       
     it "should return ok200" do
-      post "/api/levels.json", json_body, request_header
+      post "/api/categories.json", json_body, request_header
       expect(response).to be_success
       expect(response.status).to eq(200)
     end
     
-    # jsonの中身を調べる
-    it "should return valid json data " do
-      post "/api/levels.json", json_body, request_header
-      json = JSON.parse(response.body)[-1]
-      expect(json["value"].to_i).to eq(@level.value)
-      expect(json["sufficiency"].to_i).to eq(@level.sufficiency)
+    
+    it "should return valid json data" do
+      json = JSON.parse(response.body)
+      expect(json["value"]).to eq(@level.value)
+      expect(json["sufficiency"]).to eq(@level.sufficiency)
     end
   end
 end

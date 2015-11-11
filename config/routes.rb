@@ -1,14 +1,13 @@
 HikariApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :categories
-  resources :missions
+  #resources :categories
+  #resources :missions
   root  'static_pages#home'
-  match '/signup',  to: 'users#new',            via: 'get'
+  #match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/help',    to: 'static_pages#help',    via: 'get'
-  match '/categories',  to: 'categories#index', via: 'get'
   match '/api/users/:card_number', to: 'api/api#users',via: 'post'
   match '/api/categories/:category_id', to: 'api/api#categories',via: 'post' 
   match '/api/assigns', to: 'api/api#assigns',via: 'post' 
