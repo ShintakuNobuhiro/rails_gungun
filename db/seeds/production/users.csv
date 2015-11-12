@@ -1,5 +1,6 @@
 name,email,password,password_confirmation,role_id,card_number
 <<<<<<< HEAD
+<<<<<<< HEAD
 shinya,itoh@aaa.bbb,password,password_confirmation,3,abcdef123456
 nobu,shintaku@aaa.bbb,password,password_confirmation,2,abcdef456789
 hiro,example@aaa.bbb,password,password_confirmation,1,123456abcdef
@@ -15,6 +16,8 @@ user0199,0199@aaa.bbb,password,password_confirmation,1,012e34e8a508408e
 �Ђ���,202@aaa.bbb,password,password_confirmation,1,012e34e8a5084c63
 �Ђ���,203@aaa.bbb,password,password_confirmation,1,012e34e8a5084c53
 =======
+=======
+>>>>>>> development
 user0096,096@aaa.bbb,password,password,2,012e34e8a5085256
 user0097,097@aaa.bbb,password,password,2,012e34e8a5085246
 user0098,098@aaa.bbb,password,password,2,012e34e8a5085236
@@ -30,4 +33,7 @@ user0176,176@aaa.bbb,password,password,1,012e34e8a508433d
 �Ђ���,182@aaa.bbb,password,password,1,012e34e8a50841ab
 ����,183@aaa.bbb,password,password,1,012e34e8a50842b3
 ���܂�,184@aaa.bbb,password,password,1,012e34e8a50842a2
+<<<<<<< HEAD
+>>>>>>> development
+=======
 >>>>>>> development
