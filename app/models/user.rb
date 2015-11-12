@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
     statuses.each do |status|
       recent_total_experience += status.recent_experience
     end
+    
     recent_cell = 23 / Math.log(440) * Math.log(recent_total_experience + 1)
   end
   
