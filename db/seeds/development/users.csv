@@ -1,39 +1,15 @@
 name,email,password,password_confirmation,role_id,card_number
-<<<<<<< HEAD
-<<<<<<< HEAD
 shinya,itoh@aaa.bbb,password,password_confirmation,3,abcdef123456
 nobu,shintaku@aaa.bbb,password,password_confirmation,2,abcdef456789
 hiro,example@aaa.bbb,password,password_confirmation,1,123456abcdef
-‚Í‚â‚Ô‚³,193@aaa.bbb,password,password_confirmation,1,012e34e8a508406e
-‚Ð‚©‚è,194@aaa.bbb,password,password_confirmation,1,012e34e8a508405e
+ï¿½Í‚ï¿½ï¿½Ô‚ï¿½,193@aaa.bbb,password,password_confirmation,1,012e34e8a508406e
+ï¿½Ð‚ï¿½ï¿½ï¿½,194@aaa.bbb,password,password_confirmation,1,012e34e8a508405e
 user0195,195@aaa.bbb,password,password_confirmation,1,012e34e8a508404e
 user0196,196@aaa.bbb,password,password_confirmation,1,012e34e8a5084031
 user0197,197@aaa.bbb,password,password_confirmation,1,012e34e8a50840b7
 user0198,0198@aaa.bbb,password,password_confirmation,1,012e34e8a50840a7
 user0199,0199@aaa.bbb,password,password_confirmation,1,012e34e8a508408e
-‚Í‚â‚Ô‚³,200@aaa.bbb,password,password_confirmation,1,012e34e8a508409b
-‚Í‚â‚Ô‚³,201@aaa.bbb,password,password_confirmation,1,012e34e8a5084c72
-‚Ð‚©‚è,202@aaa.bbb,password,password_confirmation,1,012e34e8a5084c63
-‚Ð‚©‚è,203@aaa.bbb,password,password_confirmation,1,012e34e8a5084c53
-=======
-=======
->>>>>>> development
-user0096,096@aaa.bbb,dev0096,dev0096,2,012e34e8a5085256
-user0097,097@aaa.bbb,dev0097,dev0097,2,012e34e8a5085246
-user0098,098@aaa.bbb,dev0098,dev0098,2,012e34e8a5085236
-user0099,099@aaa.bbb,dev0099,dev0099,2,012e34e8a5085297
-user0100,100@aaa.bbb,dev0100,dev0100,2,012e34e8a5085287
-user0171,171@aaa.bbb,stu0171,stu0171,1,012e34e8a5084276
-user0172,172@aaa.bbb,stu0172,stu0172,1,012e34e8a5084266
-user0173,173@aaa.bbb,stu0173,stu0173,1,012e34e8a508424f
-user0174,174@aaa.bbb,stu0174,stu0174,1,012e34e8a508423b
-user0175,175@aaa.bbb,stu0175,stu0175,1,012e34e8a508432d
-user0176,176@aaa.bbb,stu0176,stu0176,1,012e34e8a508433d
-‚Í‚â‚Ô‚³,181@aaa.bbb,stu181,stu181,1,012e34e8a508424b
-‚Ð‚©‚è,182@aaa.bbb,stu182,stu182,1,012e34e8a50841ab
-‚½‚©,183@aaa.bbb,stu183,stu183,1,012e34e8a50842b3
-‚±‚Ü‚¿,184@aaa.bbb,stu184,stu184,1,012e34e8a50842a2
-<<<<<<< HEAD
->>>>>>> development
-=======
->>>>>>> development
+ï¿½Í‚ï¿½ï¿½Ô‚ï¿½,200@aaa.bbb,password,password_confirmation,1,012e34e8a508409b
+ï¿½Í‚ï¿½ï¿½Ô‚ï¿½,201@aaa.bbb,password,password_confirmation,1,012e34e8a5084c72
+ï¿½Ð‚ï¿½ï¿½ï¿½,202@aaa.bbb,password,password_confirmation,1,012e34e8a5084c63
+ï¿½Ð‚ï¿½ï¿½ï¿½,203@aaa.bbb,password,password_confirmation,1,012e34e8a5084c53
