@@ -126,6 +126,8 @@ class Api::ApiController < ApplicationController
                     # 達成の記録
                     history = History.new(mission_id: mission_id, user_id: @user.id, experience: total_experience)
                     history.save!
+                    
+                    assign.destroy
                 end
             else
                 error = { error:"404 Not Found",detail:"invalid password" }
@@ -138,9 +140,7 @@ class Api::ApiController < ApplicationController
     end
     
     def levels
-        #json_body = JSON.parse(request.body.read)
         user = User.find_by(card_number: params[:card_number])
-        
         if user
             if user.authenticate(params[:password])
                 @levels = Level.all
