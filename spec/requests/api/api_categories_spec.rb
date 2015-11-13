@@ -27,6 +27,7 @@ describe "POST /api_categories" do
     
     
     it "should return valid json data" do
+      post "/api/categories.json", json_body, request_header
       json = JSON.parse(response.body)
       expect(json["value"]).to eq(@level.value)
       expect(json["sufficiency"]).to eq(@level.sufficiency)
