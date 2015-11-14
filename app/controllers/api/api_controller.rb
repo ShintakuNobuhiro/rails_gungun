@@ -72,7 +72,7 @@ class Api::ApiController < ApplicationController
                 # 割り当てのクリア
                 @mission_ids = params[:mission_ids]
                 unless @mission_ids
-                    @user.assigns each do |assign|
+                    @user.assigns.each do |assign|
                         assign.destroy
                     end
                     message ={ accepted:"200 OK",detail:"assigns cleared" }
