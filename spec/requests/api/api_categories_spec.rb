@@ -6,7 +6,9 @@ describe "POST /api_categories" do
     @user = User.create(name: "Example User", email: "user@example.com",
                         password: "foobar", password_confirmation: "foobar",
                         card_number:"example")
-    @mission = Mission.create(level_id:1, category_id:1, description:"説明文")
+    @category = Category.create(name: "健康")
+    @level = Level.create(value:2, sufficiency:100)
+    @mission = Mission.create(level_id: @level.id, category_id: @category.id, description:"説明文")
   end
   
   describe "POST /api/categories.json" do
@@ -27,10 +29,14 @@ describe "POST /api_categories" do
     
     
     it "should return valid json data" do
-      post "/api/categories.json", json_body, request_header
-      json = JSON.parse(response.body)
-      expect(json["value"]).to eq(@level.value)
-      expect(json["sufficiency"]).to eq(@level.sufficiency)
+      post "/api/categories/#{@category.id}.json", json_body, request_header
+      jsons = JSON.parse(response.body)
+      expect(jsons["name"]).to eq(@category.name)
+      levels = jsons["levels"]      
+      levels.each do |level|
+        
+        
+      end
     end
   end
 end
