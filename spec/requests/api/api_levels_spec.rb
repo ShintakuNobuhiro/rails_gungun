@@ -30,9 +30,12 @@ describe "POST /api_levels" do
     # jsonの中身を調べる
     it "should return valid json data " do
       post "/api/levels.json", json_body, request_header
-      json = JSON.parse(response.body)[-1]
-      expect(json["value"].to_i).to eq(@level.value)
-      expect(json["sufficiency"].to_i).to eq(@level.sufficiency)
+      jsons = JSON.parse(response.body)
+      jsons.each do |json|
+        if json["value"].to_i == (@level.value)
+          expect(json["required_experience"].to_i).to eq(@level.sufficiency)
+        end
+      end
     end
   end
 end

@@ -213,10 +213,16 @@ $ curl -X POST -H "Content-type: application/json" -d '{"card_number":"abcdef123
 ```
 
 応答
+
+一つ以上達成した場合
 ```
 { "card_number":"abcdef123456", "mission_ids": [20, 18] }
 ```
 
+何も達成していない場合
+```
+{ "accepted":"200 OK","detail":"assigns cleared" }
+```
 
 
 例外
