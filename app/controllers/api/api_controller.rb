@@ -69,8 +69,17 @@ class Api::ApiController < ApplicationController
         
         if @user
             if @user.authenticate(params[:password])
-                # ミッションの存在確認
+                # 割り当てのクリア
                 @mission_ids = params[:mission_ids]
+                unless @mission_ids
+                    @user.assigns.each do |assign|
+                        assign.destroy
+                    end
+                    message ={ accepted:"200 OK",detail:"assigns cleared" }
+                    render json: message and return
+                end
+
+                # ミッションの存在確認
                 @mission_ids.each do |mission_id|
                     mission = Mission.find_by(id: mission_id)
                     unless mission
