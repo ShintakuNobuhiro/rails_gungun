@@ -52,7 +52,7 @@ describe "POST /api/categories/:category_id" do
     let(:json_body_invalid_password) do
       '{"card_number":"example","password":"foobar_invalid"}' 
     end
-    
+
     it "should return 404 Not Found" do
       post "/api/categories/#{@category.id}.json", json_body_invalid_user, request_header
       jsons = JSON.parse(response.body)
