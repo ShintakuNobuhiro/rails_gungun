@@ -32,7 +32,7 @@ describe "POST /api/assigns" do
       jsons = JSON.parse(response.body)
       if jsons["card_number"] == (@user.card_number)
         mission_ids = jsons["mission_ids"]
-        expect(mission_ids).to match_array [@mission1.id, @mission2.id]
+        expect(mission_ids).to match_array [@mission1.id,@mission2.id]
       end
     end
     
@@ -55,15 +55,15 @@ describe "POST /api/assigns" do
     end
     
     it "should return 404 Not Found" do
-      post "/api/levels.json", json_body_invalid_password, request_header
+      post "/api/assigns.json", json_body_invalid_password, request_header
       jsons = JSON.parse(response.body)
       expect(jsons["detail"]).to eq("invalid password")
     end
     
     it "should return 404 Not Found" do
-      post "/api/levels.json", json_body_invalid_mission, request_header
+      post "/api/assigns.json", json_body_invalid_mission, request_header
       jsons = JSON.parse(response.body)
-      expect(jsons["detail"]).to eq("missions not found with mission_ids=#{@mission1.id},#{@mission2.id}")
+      expect(jsons["detail"]).to eq("missions not found with mission_ids=[10, 18]")
     end
   end
 end

@@ -68,6 +68,7 @@ describe "POST /api/categories/:category_id" do
     it "should return 404 Not Found" do
       post "/api/categories/#{@category.id+10}.json", json_body, request_header
       jsons = JSON.parse(response.body)
+      puts jsons
       expect(jsons["detail"]).to eq("category not found with category_id=#{@category.id+10}")
     end
   end
