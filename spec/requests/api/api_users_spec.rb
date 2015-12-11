@@ -1,11 +1,18 @@
 require 'spec_helper'
 
-describe "ApiUsers" do
-  describe "GET /api_users" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get api_users_index_path
-      response.status.should be(200)
-    end
+describe "POST /api/users/:card_number" do
+  subject { page }
+  before do
+    @user = User.create(name: "Example User", email: "user@example.com",
+                        password: "foobar", password_confirmation: "foobar",
+                        card_number:"example")
+    @category = Category.create(name: "健康")
+    @level = Level.create(value:2, sufficiency:100)
+    @role = Role.create(name:"student")
+    @mission1 = Mission.create(id:20, level_id: @level.id, category_id: @category.id, description:"説明文")
+    @mission2 = Mission.create(id:18, level_id: @level.id, category_id: @category.id, description:"説明文")
+  end
+  
+  describe "POST /api/users/:card_number.json" do
   end
 end

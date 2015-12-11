@@ -63,7 +63,7 @@ describe "POST /api/histories" do
     it "should return 404 Not Found" do
       post "/api/histories.json", json_body_invalid_mission, request_header
       jsons = JSON.parse(response.body)
-      expect(jsons["detail"]).to eq("missions not found with mission_ids=#{@mission1.id},#{@mission2.id}")
+      expect(jsons["detail"]).to eq("missions not found with mission_ids=[10, 18]")
     end
   end
 end

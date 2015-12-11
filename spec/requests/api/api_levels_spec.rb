@@ -46,7 +46,7 @@ describe "POST /api_levels" do
       '{"card_number":"example","password":"foobar_invalid"}' 
     end
     
-    it "should return 404 Not Found" do
+    it "should return 404 Not Found " do
       post "/api/levels.json", json_body_invalid_user, request_header
       jsons = JSON.parse(response.body)
       expect(jsons["detail"]).to eq("user not found with card_number=example_invalid")
