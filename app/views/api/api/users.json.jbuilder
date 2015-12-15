@@ -1,7 +1,7 @@
-json.role(@user.role)
-json.name(@user.name)
-json.cell(@user.cell)
+json.role(@user.role.name)
+json.nick_name(@user.name)
 json.recent_cell(@user.recent_cell)
+json.cell(@user.cell)
 json.statuses do
     json.array!(@user.statuses) do |status|
         json.category(status.category.name)

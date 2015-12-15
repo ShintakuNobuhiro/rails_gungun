@@ -48,19 +48,19 @@ describe "POST /api/histories" do
       '{"card_number":"example","password":"foobar", "mission_ids":[10,18]}' 
     end
     
-    it "should return 404 Not Found" do
+    it "should return 404 Not Found user not found" do
       post "/api/histories.json", json_body_invalid_user, request_header
       jsons = JSON.parse(response.body)
       expect(jsons["detail"]).to eq("user not found with card_number=example_invalid")
     end
     
-    it "should return 404 Not Found" do
+    it "should return 404 Not Found invalid password" do
       post "/api/histories.json", json_body_invalid_password, request_header
       jsons = JSON.parse(response.body)
       expect(jsons["detail"]).to eq("invalid password")
     end
     
-    it "should return 404 Not Found" do
+    it "should return 404 Not Found mission not found" do
       post "/api/histories.json", json_body_invalid_mission, request_header
       jsons = JSON.parse(response.body)
       expect(jsons["detail"]).to eq("missions not found with mission_ids=[10, 18]")

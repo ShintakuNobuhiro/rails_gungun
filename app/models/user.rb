@@ -57,4 +57,4 @@ class User < ActiveRecord::Base
         self.statuses.create(category_id: category.id, experience: 0, recent_experience: 0)
       end
     end
-end
+end 

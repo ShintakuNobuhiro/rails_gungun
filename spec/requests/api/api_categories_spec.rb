@@ -7,7 +7,7 @@ describe "POST /api/categories/:category_id" do
                         password: "foobar", password_confirmation: "foobar",
                         card_number:"example")
     @category = Category.create(name: "健康")
-    @level = Level.create(value:2, sufficiency:100)
+    @level = Level.create(value:2, sufficiency:20)
     @mission = Mission.create(level_id: @level.id, category_id: @category.id, description:"説明文")
   end
   
@@ -53,22 +53,21 @@ describe "POST /api/categories/:category_id" do
       '{"card_number":"example","password":"foobar_invalid"}' 
     end
 
-    it "should return 404 Not Found" do
+    it "should return 404 Not Found user not found" do
       post "/api/categories/#{@category.id}.json", json_body_invalid_user, request_header
       jsons = JSON.parse(response.body)
       expect(jsons["detail"]).to eq("user not found with card_number=example_invalid")
     end
     
-    it "should return 404 Not Found" do
+    it "should return 404 Not Found invalid password" do
       post "/api/categories/#{@category.id}.json", json_body_invalid_password, request_header
       jsons = JSON.parse(response.body)
       expect(jsons["detail"]).to eq("invalid password")
     end
     
-    it "should return 404 Not Found" do
+    it "should return 404 Not Found category not found" do
       post "/api/categories/#{@category.id+10}.json", json_body, request_header
       jsons = JSON.parse(response.body)
-      puts jsons
       expect(jsons["detail"]).to eq("category not found with category_id=#{@category.id+10}")
     end
   end
