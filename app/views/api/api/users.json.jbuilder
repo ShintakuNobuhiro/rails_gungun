@@ -15,7 +15,7 @@ end
 json.assigns do
     json.array!(@user.assigns) do |assign|
         json.mission_id(assign.mission_id)
-        json.category(assign.mission.category)
+        json.category(assign.mission.category.name)
         json.level(assign.mission.level.value)
         json.description(assign.mission.description)
         json.achievement(assign.achievement)

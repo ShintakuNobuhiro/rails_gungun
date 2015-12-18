@@ -36,6 +36,7 @@ describe "POST /api/histories" do
       end
     end
     
+    
     let(:json_body_invalid_user) do
       '{"card_number":"example_invalid","password":"foobar", "mission_ids":[20,18]}' 
     end
