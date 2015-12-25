@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    #@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Hikari App!"
+      flash[:success] = "Welcome to the Hikari App"
       redirect_to @user
     else
       render 'new'
