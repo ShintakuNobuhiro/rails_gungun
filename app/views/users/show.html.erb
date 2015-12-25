@@ -5,14 +5,14 @@
       <h1>
         <%= @user.name %>
       </h1>
-      <ul>
+     <ul>
         <% @user.histories.each do |history| %>
-          <li>
-            <%= history.created_at %>
-            <%= history.mission.description %>
-          </li>
+         <li>
+            <%= history.created_at %><br>
+            「<%= history.mission.description %>」　をクリア！
+         </li>
         <% end %>  
       </ul>
     </section>
-  </aside>
+ </aside>
 </div>
